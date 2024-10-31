@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="phamtungson_2210900122_K22CNT1ModelStoreContainer" CdmEntityContainer="phamtungson_2210900122_K22CNT1Entities">
+    <EntitySetMapping Name="chi_tiet_hoa_don">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.chi_tiet_hoa_don">
+        <MappingFragment StoreEntitySet="chi_tiet_hoa_don">
+          <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+          <ScalarProperty Name="ma_sp" ColumnName="ma_sp" />
+          <ScalarProperty Name="ma_size" ColumnName="ma_size" />
+          <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+          <ScalarProperty Name="don_gia" ColumnName="don_gia" />
+          <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hoa_don">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.hoa_don">
+        <MappingFragment StoreEntitySet="hoa_don">
+          <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+          <ScalarProperty Name="ngay_laphd" ColumnName="ngay_laphd" />
+          <ScalarProperty Name="ngay_giao_hang" ColumnName="ngay_giao_hang" />
+          <ScalarProperty Name="dc_giao_hang" ColumnName="dc_giao_hang" />
+          <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="khach_hang">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.khach_hang">
+        <MappingFragment StoreEntitySet="khach_hang">
+          <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+          <ScalarProperty Name="ten_DN" ColumnName="ten_DN" />
+          <ScalarProperty Name="ho_ten" ColumnName="ho_ten" />
+          <ScalarProperty Name="ngay_sinh" ColumnName="ngay_sinh" />
+          <ScalarProperty Name="gioi_tinh" ColumnName="gioi_tinh" />
+          <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
+          <ScalarProperty Name="diachi" ColumnName="diachi" />
+          <ScalarProperty Name="sdt" ColumnName="sdt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="san_pham">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.san_pham">
+        <MappingFragment StoreEntitySet="san_pham">
+          <ScalarProperty Name="ma_sp" ColumnName="ma_sp" />
+          <ScalarProperty Name="ten_sp" ColumnName="ten_sp" />
+          <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+          <ScalarProperty Name="loai_sp" ColumnName="loai_sp" />
+          <ScalarProperty Name="gioi_tinh" ColumnName="gioi_tinh" />
+          <ScalarProperty Name="anh" ColumnName="anh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sizes">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.size">
+        <MappingFragment StoreEntitySet="size">
+          <ScalarProperty Name="ma_size" ColumnName="ma_size" />
+          <ScalarProperty Name="size1" ColumnName="size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

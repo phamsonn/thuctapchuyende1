@@ -1,0 +1,74 @@
+﻿@model phamtungson_2210900122_K22CNT1.Models.khach_hang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>khach_hang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_DN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_DN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ho_ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ho_ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_sinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_sinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gioi_tinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gioi_tinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mat_khau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mat_khau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.diachi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.diachi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sdt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ma_kh }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model phamtungson_2210900122_K22CNT1.Models.hoa_don
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hoa_don</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_laphd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_laphd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_giao_hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_giao_hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dc_giao_hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dc_giao_hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.khach_hang.ten_DN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.khach_hang.ten_DN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ma_hd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

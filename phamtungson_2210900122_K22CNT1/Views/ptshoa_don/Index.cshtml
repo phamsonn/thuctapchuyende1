@@ -1,0 +1,51 @@
+﻿@model IEnumerable<phamtungson_2210900122_K22CNT1.Models.hoa_don>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_laphd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_giao_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dc_giao_hang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.khach_hang.ten_DN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay_laphd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay_giao_hang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dc_giao_hang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.khach_hang.ten_DN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ma_hd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ma_hd }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ma_hd })
+        </td>
+    </tr>
+}
+
+</table>

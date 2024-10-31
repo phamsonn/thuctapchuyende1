@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="phamtungson_2210900122_K22CNT1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="chi_tiet_hoa_don">
+          <Key>
+            <PropertyRef Name="ma_hd" />
+            <PropertyRef Name="ma_sp" />
+            <PropertyRef Name="ma_size" />
+          </Key>
+          <Property Name="ma_hd" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ma_sp" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ma_size" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="so_luong" Type="int" />
+          <Property Name="don_gia" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="thanh_tien" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="hoa_don">
+          <Key>
+            <PropertyRef Name="ma_hd" />
+          </Key>
+          <Property Name="ma_hd" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ngay_laphd" Type="datetime" />
+          <Property Name="ngay_giao_hang" Type="datetime" />
+          <Property Name="dc_giao_hang" Type="varchar" MaxLength="50" />
+          <Property Name="ma_kh" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="khach_hang">
+          <Key>
+            <PropertyRef Name="ma_kh" />
+          </Key>
+          <Property Name="ma_kh" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ten_DN" Type="varchar" MaxLength="50" />
+          <Property Name="ho_ten" Type="varchar" MaxLength="50" />
+          <Property Name="ngay_sinh" Type="datetime" />
+          <Property Name="gioi_tinh" Type="char" MaxLength="5" />
+          <Property Name="mat_khau" Type="varchar" MaxLength="100" />
+          <Property Name="diachi" Type="varchar" MaxLength="100" />
+          <Property Name="sdt" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="san_pham">
+          <Key>
+            <PropertyRef Name="ma_sp" />
+          </Key>
+          <Property Name="ma_sp" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="ten_sp" Type="varchar" MaxLength="50" />
+          <Property Name="gia_ban" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="loai_sp" Type="int" />
+          <Property Name="gioi_tinh" Type="char" MaxLength="5" />
+          <Property Name="anh" Type="text" />
+        </EntityType>
+        <EntityType Name="size">
+          <Key>
+            <PropertyRef Name="ma_size" />
+          </Key>
+          <Property Name="ma_size" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__chi_tiet___ma_hd__1920BF5C">
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoa_don">
+              <PropertyRef Name="ma_hd" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_hd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet___ma_si__1B0907CE">
+          <End Role="size" Type="Self.size" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="size">
+              <PropertyRef Name="ma_size" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_size" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet___ma_sp__1A14E395">
+          <End Role="san_pham" Type="Self.san_pham" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="san_pham">
+              <PropertyRef Name="ma_sp" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoa_don__ma_kh__164452B1">
+          <End Role="khach_hang" Type="Self.khach_hang" Multiplicity="0..1" />
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khach_hang">
+              <PropertyRef Name="ma_kh" />
+            </Principal>
+            <Dependent Role="hoa_don">
+              <PropertyRef Name="ma_kh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="phamtungson_2210900122_K22CNT1ModelStoreContainer">
+          <EntitySet Name="chi_tiet_hoa_don" EntityType="Self.chi_tiet_hoa_don" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hoa_don" EntityType="Self.hoa_don" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="khach_hang" EntityType="Self.khach_hang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="san_pham" EntityType="Self.san_pham" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="size" EntityType="Self.size" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__chi_tiet___ma_hd__1920BF5C" Association="Self.FK__chi_tiet___ma_hd__1920BF5C">
+            <End Role="hoa_don" EntitySet="hoa_don" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet___ma_si__1B0907CE" Association="Self.FK__chi_tiet___ma_si__1B0907CE">
+            <End Role="size" EntitySet="size" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet___ma_sp__1A14E395" Association="Self.FK__chi_tiet___ma_sp__1A14E395">
+            <End Role="san_pham" EntitySet="san_pham" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoa_don__ma_kh__164452B1" Association="Self.FK__hoa_don__ma_kh__164452B1">
+            <End Role="khach_hang" EntitySet="khach_hang" />
+            <End Role="hoa_don" EntitySet="hoa_don" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="phamtungson_2210900122_K22CNT1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="chi_tiet_hoa_don">
+          <Key>
+            <PropertyRef Name="ma_hd" />
+            <PropertyRef Name="ma_sp" />
+            <PropertyRef Name="ma_size" />
+          </Key>
+          <Property Name="ma_hd" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ma_sp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ma_size" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="so_luong" Type="Int32" />
+          <Property Name="don_gia" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="thanh_tien" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__1920BF5C" FromRole="chi_tiet_hoa_don" ToRole="hoa_don" />
+          <NavigationProperty Name="size" Relationship="Self.FK__chi_tiet___ma_si__1B0907CE" FromRole="chi_tiet_hoa_don" ToRole="size" />
+          <NavigationProperty Name="san_pham" Relationship="Self.FK__chi_tiet___ma_sp__1A14E395" FromRole="chi_tiet_hoa_don" ToRole="san_pham" />
+        </EntityType>
+        <EntityType Name="hoa_don">
+          <Key>
+            <PropertyRef Name="ma_hd" />
+          </Key>
+          <Property Name="ma_hd" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ngay_laphd" Type="DateTime" Precision="3" />
+          <Property Name="ngay_giao_hang" Type="DateTime" Precision="3" />
+          <Property Name="dc_giao_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ma_kh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__1920BF5C" FromRole="hoa_don" ToRole="chi_tiet_hoa_don" />
+          <NavigationProperty Name="khach_hang" Relationship="Self.FK__hoa_don__ma_kh__164452B1" FromRole="hoa_don" ToRole="khach_hang" />
+        </EntityType>
+        <EntityType Name="khach_hang">
+          <Key>
+            <PropertyRef Name="ma_kh" />
+          </Key>
+          <Property Name="ma_kh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ten_DN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ho_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ngay_sinh" Type="DateTime" Precision="3" />
+          <Property Name="gioi_tinh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="mat_khau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_kh__164452B1" FromRole="khach_hang" ToRole="hoa_don" />
+        </EntityType>
+        <EntityType Name="san_pham">
+          <Key>
+            <PropertyRef Name="ma_sp" />
+          </Key>
+          <Property Name="ma_sp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ten_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gia_ban" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="loai_sp" Type="Int32" />
+          <Property Name="gioi_tinh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_sp__1A14E395" FromRole="san_pham" ToRole="chi_tiet_hoa_don" />
+        </EntityType>
+        <EntityType Name="size">
+          <Key>
+            <PropertyRef Name="ma_size" />
+          </Key>
+          <Property Name="ma_size" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="size1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_si__1B0907CE" FromRole="size" ToRole="chi_tiet_hoa_don" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK__chi_tiet___ma_hd__1920BF5C">
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hoa_don">
+              <PropertyRef Name="ma_hd" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_hd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet___ma_si__1B0907CE">
+          <End Role="size" Type="Self.size" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="size">
+              <PropertyRef Name="ma_size" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_size" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet___ma_sp__1A14E395">
+          <End Role="san_pham" Type="Self.san_pham" Multiplicity="1" />
+          <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="san_pham">
+              <PropertyRef Name="ma_sp" />
+            </Principal>
+            <Dependent Role="chi_tiet_hoa_don">
+              <PropertyRef Name="ma_sp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hoa_don__ma_kh__164452B1">
+          <End Role="khach_hang" Type="Self.khach_hang" Multiplicity="0..1" />
+          <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="khach_hang">
+              <PropertyRef Name="ma_kh" />
+            </Principal>
+            <Dependent Role="hoa_don">
+              <PropertyRef Name="ma_kh" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="phamtungson_2210900122_K22CNT1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="chi_tiet_hoa_don" EntityType="Self.chi_tiet_hoa_don" />
+          <EntitySet Name="hoa_don" EntityType="Self.hoa_don" />
+          <EntitySet Name="khach_hang" EntityType="Self.khach_hang" />
+          <EntitySet Name="san_pham" EntityType="Self.san_pham" />
+          <EntitySet Name="sizes" EntityType="Self.size" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <AssociationSet Name="FK__chi_tiet___ma_hd__1920BF5C" Association="Self.FK__chi_tiet___ma_hd__1920BF5C">
+            <End Role="hoa_don" EntitySet="hoa_don" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet___ma_si__1B0907CE" Association="Self.FK__chi_tiet___ma_si__1B0907CE">
+            <End Role="size" EntitySet="sizes" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet___ma_sp__1A14E395" Association="Self.FK__chi_tiet___ma_sp__1A14E395">
+            <End Role="san_pham" EntitySet="san_pham" />
+            <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hoa_don__ma_kh__164452B1" Association="Self.FK__hoa_don__ma_kh__164452B1">
+            <End Role="khach_hang" EntitySet="khach_hang" />
+            <End Role="hoa_don" EntitySet="hoa_don" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="phamtungson_2210900122_K22CNT1ModelStoreContainer" CdmEntityContainer="phamtungson_2210900122_K22CNT1Entities">
+          <EntitySetMapping Name="chi_tiet_hoa_don">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.chi_tiet_hoa_don">
+              <MappingFragment StoreEntitySet="chi_tiet_hoa_don">
+                <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+                <ScalarProperty Name="ma_sp" ColumnName="ma_sp" />
+                <ScalarProperty Name="ma_size" ColumnName="ma_size" />
+                <ScalarProperty Name="so_luong" ColumnName="so_luong" />
+                <ScalarProperty Name="don_gia" ColumnName="don_gia" />
+                <ScalarProperty Name="thanh_tien" ColumnName="thanh_tien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hoa_don">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.hoa_don">
+              <MappingFragment StoreEntitySet="hoa_don">
+                <ScalarProperty Name="ma_hd" ColumnName="ma_hd" />
+                <ScalarProperty Name="ngay_laphd" ColumnName="ngay_laphd" />
+                <ScalarProperty Name="ngay_giao_hang" ColumnName="ngay_giao_hang" />
+                <ScalarProperty Name="dc_giao_hang" ColumnName="dc_giao_hang" />
+                <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="khach_hang">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.khach_hang">
+              <MappingFragment StoreEntitySet="khach_hang">
+                <ScalarProperty Name="ma_kh" ColumnName="ma_kh" />
+                <ScalarProperty Name="ten_DN" ColumnName="ten_DN" />
+                <ScalarProperty Name="ho_ten" ColumnName="ho_ten" />
+                <ScalarProperty Name="ngay_sinh" ColumnName="ngay_sinh" />
+                <ScalarProperty Name="gioi_tinh" ColumnName="gioi_tinh" />
+                <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
+                <ScalarProperty Name="diachi" ColumnName="diachi" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="san_pham">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.san_pham">
+              <MappingFragment StoreEntitySet="san_pham">
+                <ScalarProperty Name="ma_sp" ColumnName="ma_sp" />
+                <ScalarProperty Name="ten_sp" ColumnName="ten_sp" />
+                <ScalarProperty Name="gia_ban" ColumnName="gia_ban" />
+                <ScalarProperty Name="loai_sp" ColumnName="loai_sp" />
+                <ScalarProperty Name="gioi_tinh" ColumnName="gioi_tinh" />
+                <ScalarProperty Name="anh" ColumnName="anh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sizes">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.size">
+              <MappingFragment StoreEntitySet="size">
+                <ScalarProperty Name="ma_size" ColumnName="ma_size" />
+                <ScalarProperty Name="size1" ColumnName="size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="phamtungson_2210900122_K22CNT1Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

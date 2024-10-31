@@ -1,0 +1,77 @@
+﻿@model IEnumerable<phamtungson_2210900122_K22CNT1.Models.khach_hang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ma_kh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ten_DN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ho_ten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_sinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gioi_tinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mat_khau)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.diachi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sdt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ma_kh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ten_DN)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ho_ten)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ngay_sinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.gioi_tinh)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.mat_khau)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.diachi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.sdt)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { ma_kh = item.ma_kh.Trim() })
+        @Html.ActionLink("Details", "Details", new { ma_kh = item.ma_kh.Trim() })
+        @Html.ActionLink("Delete", "Delete", new { ma_kh = item.ma_kh.Trim() })
+
+
+    </td>
+</tr>
+}
+
+</table>

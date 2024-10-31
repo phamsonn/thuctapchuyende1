@@ -1,0 +1,72 @@
+﻿@model phamtungson_2210900122_K22CNT1.Models.chi_tiet_hoa_don
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>chi_tiet_hoa_don</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.so_luong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_luong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.don_gia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.don_gia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thanh_tien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thanh_tien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hoa_don.dc_giao_hang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hoa_don.dc_giao_hang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.size.size1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.size.size1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.san_pham.ten_sp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.san_pham.ten_sp)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="phamtungson_2210900122_K22CNT1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="chi_tiet_hoa_don">
+    <Key>
+      <PropertyRef Name="ma_hd" />
+      <PropertyRef Name="ma_sp" />
+      <PropertyRef Name="ma_size" />
+    </Key>
+    <Property Name="ma_hd" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ma_sp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ma_size" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="so_luong" Type="Int32" />
+    <Property Name="don_gia" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="thanh_tien" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__1920BF5C" FromRole="chi_tiet_hoa_don" ToRole="hoa_don" />
+    <NavigationProperty Name="size" Relationship="Self.FK__chi_tiet___ma_si__1B0907CE" FromRole="chi_tiet_hoa_don" ToRole="size" />
+    <NavigationProperty Name="san_pham" Relationship="Self.FK__chi_tiet___ma_sp__1A14E395" FromRole="chi_tiet_hoa_don" ToRole="san_pham" />
+  </EntityType>
+  <EntityType Name="hoa_don">
+    <Key>
+      <PropertyRef Name="ma_hd" />
+    </Key>
+    <Property Name="ma_hd" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ngay_laphd" Type="DateTime" Precision="3" />
+    <Property Name="ngay_giao_hang" Type="DateTime" Precision="3" />
+    <Property Name="dc_giao_hang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ma_kh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_hd__1920BF5C" FromRole="hoa_don" ToRole="chi_tiet_hoa_don" />
+    <NavigationProperty Name="khach_hang" Relationship="Self.FK__hoa_don__ma_kh__164452B1" FromRole="hoa_don" ToRole="khach_hang" />
+  </EntityType>
+  <EntityType Name="khach_hang">
+    <Key>
+      <PropertyRef Name="ma_kh" />
+    </Key>
+    <Property Name="ma_kh" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ten_DN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ho_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ngay_sinh" Type="DateTime" Precision="3" />
+    <Property Name="gioi_tinh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="mat_khau" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="diachi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="sdt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="hoa_don" Relationship="Self.FK__hoa_don__ma_kh__164452B1" FromRole="khach_hang" ToRole="hoa_don" />
+  </EntityType>
+  <EntityType Name="san_pham">
+    <Key>
+      <PropertyRef Name="ma_sp" />
+    </Key>
+    <Property Name="ma_sp" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ten_sp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gia_ban" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="loai_sp" Type="Int32" />
+    <Property Name="gioi_tinh" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="anh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_sp__1A14E395" FromRole="san_pham" ToRole="chi_tiet_hoa_don" />
+  </EntityType>
+  <EntityType Name="size">
+    <Key>
+      <PropertyRef Name="ma_size" />
+    </Key>
+    <Property Name="ma_size" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="size1" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="chi_tiet_hoa_don" Relationship="Self.FK__chi_tiet___ma_si__1B0907CE" FromRole="size" ToRole="chi_tiet_hoa_don" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK__chi_tiet___ma_hd__1920BF5C">
+    <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="1" />
+    <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hoa_don">
+        <PropertyRef Name="ma_hd" />
+      </Principal>
+      <Dependent Role="chi_tiet_hoa_don">
+        <PropertyRef Name="ma_hd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chi_tiet___ma_si__1B0907CE">
+    <End Role="size" Type="Self.size" Multiplicity="1" />
+    <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="size">
+        <PropertyRef Name="ma_size" />
+      </Principal>
+      <Dependent Role="chi_tiet_hoa_don">
+        <PropertyRef Name="ma_size" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chi_tiet___ma_sp__1A14E395">
+    <End Role="san_pham" Type="Self.san_pham" Multiplicity="1" />
+    <End Role="chi_tiet_hoa_don" Type="Self.chi_tiet_hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="san_pham">
+        <PropertyRef Name="ma_sp" />
+      </Principal>
+      <Dependent Role="chi_tiet_hoa_don">
+        <PropertyRef Name="ma_sp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hoa_don__ma_kh__164452B1">
+    <End Role="khach_hang" Type="Self.khach_hang" Multiplicity="0..1" />
+    <End Role="hoa_don" Type="Self.hoa_don" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="khach_hang">
+        <PropertyRef Name="ma_kh" />
+      </Principal>
+      <Dependent Role="hoa_don">
+        <PropertyRef Name="ma_kh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="phamtungson_2210900122_K22CNT1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="chi_tiet_hoa_don" EntityType="Self.chi_tiet_hoa_don" />
+    <EntitySet Name="hoa_don" EntityType="Self.hoa_don" />
+    <EntitySet Name="khach_hang" EntityType="Self.khach_hang" />
+    <EntitySet Name="san_pham" EntityType="Self.san_pham" />
+    <EntitySet Name="sizes" EntityType="Self.size" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK__chi_tiet___ma_hd__1920BF5C" Association="Self.FK__chi_tiet___ma_hd__1920BF5C">
+      <End Role="hoa_don" EntitySet="hoa_don" />
+      <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chi_tiet___ma_si__1B0907CE" Association="Self.FK__chi_tiet___ma_si__1B0907CE">
+      <End Role="size" EntitySet="sizes" />
+      <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chi_tiet___ma_sp__1A14E395" Association="Self.FK__chi_tiet___ma_sp__1A14E395">
+      <End Role="san_pham" EntitySet="san_pham" />
+      <End Role="chi_tiet_hoa_don" EntitySet="chi_tiet_hoa_don" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hoa_don__ma_kh__164452B1" Association="Self.FK__hoa_don__ma_kh__164452B1">
+      <End Role="khach_hang" EntitySet="khach_hang" />
+      <End Role="hoa_don" EntitySet="hoa_don" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Downloads\\phamtungson_2210900122_K22CNT1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E075B94A-B14B-459F-8A8C-AFDF2A4F5D62}|phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj|c:\\users\\admin\\downloads\\phamtungson_2210900122_k22cnt1\\phamtungson_2210900122_k22cnt1\\models\\ptsmodel1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{E075B94A-B14B-459F-8A8C-AFDF2A4F5D62}|phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj|solutionrelative:phamtungson_2210900122_k22cnt1\\models\\ptsmodel1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|phamtungson_2210900122_K22CNT1||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E075B94A-B14B-459F-8A8C-AFDF2A4F5D62}|phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj|c:\\users\\admin\\downloads\\phamtungson_2210900122_k22cnt1\\phamtungson_2210900122_k22cnt1\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ptsModel1.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1\\Models\\ptsModel1.edmx",
+              "RelativeDocumentMoniker": "phamtungson_2210900122_K22CNT1\\Models\\ptsModel1.edmx",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1\\Models\\ptsModel1.edmx [Diagram1]",
+              "RelativeToolTip": "phamtungson_2210900122_K22CNT1\\Models\\ptsModel1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-10-31T14:48:35.387Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "phamtungson_2210900122_K22CNT1",
+              "DocumentMoniker": "C:\\Users\\Admin\\Downloads\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj",
+              "RelativeDocumentMoniker": "phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj",
+              "ToolTip": "C:\\Users\\Admin\\Downloads\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj",
+              "RelativeToolTip": "phamtungson_2210900122_K22CNT1\\phamtungson_2210900122_K22CNT1.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-31T14:48:24.357Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
